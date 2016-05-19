@@ -1,0 +1,124 @@
+% Copyright 2007 by Till Tantau
+%
+% This file may be distributed and/or modified
+%
+% 1. under the LaTeX Project Public License and/or
+% 2. under the GNU Public License.
+%
+% See the file doc/licenses/LICENSE for more details.
+
+\usepackage[absolute,overlay]{textpos}
+\usepackage{epstopdf}
+\usepackage{tikz}
+\usetikzlibrary{arrows,shapes}
+\tikzset{
+  every overlay node/.style={
+    anchor=north west,
+  },
+}
+% Usage:
+% \tikzoverlay at (-1cm,-5cm) {content};
+% or
+% \tikzoverlay[text width=5cm] at (-1cm,-5cm) {content};
+\def\tikzoverlay{%
+   \tikz[baseline,overlay]\node[every overlay node]
+}%
+
+\mode<presentation>
+
+\definecolor{UICred}{rgb}{.937,.215,.258}
+\definecolor{UICblue}{rgb}{0.05,0.133,.251}
+\setbeamercolor*{UICheader}{fg=white,bg=UICblue}
+\setbeamercolor*{UICsubheader}{fg=white,bg=UICred}
+\setbeamercolor*{UICsections}{fg=UICblue,bg=white}
+\setbeamercolor*{title}{fg=UICred,bg=white}
+\setbeamercolor*{date}{fg=UICblue,bg=white}
+\setbeamercolor*{frametitle}{fg=white,bg=UICblue}
+
+\setbeamercolor*{author in head/foot}{parent=palette tertiary, bg=uicdarkblue}
+\setbeamercolor*{title in head/foot}{parent=palette secondary, bg=uicdarkblue}
+\setbeamercolor*{date in head/foot}{parent=palette primary, bg=uicdarkblue}
+
+\setbeamercolor*{section in head/foot}{parent=palette tertiary}
+\setbeamercolor*{subsection in head/foot}{parent=palette primary}
+
+\newcommand{\footerheight}{0.9cm}
+\newcommand{\footerdepth}{1ex}
+
+\defbeamertemplate*{footline}{UIC theme}
+{
+  \leavevmode%
+  \hbox{%
+\begin{beamercolorbox}[rounded=false, left, shadow=false,wd=1.1\paperwidth, ht=0.008\paperheight]{UICsubheader}
+	\end{beamercolorbox}
+    }
+    \leavevmode
+    \hbox{
+    \hspace*{-0.01211\paperwidth}
+\begin{beamercolorbox}[rounded=false, left, shadow=false, wd=1.1\paperwidth, ht=0.1\paperheight]{UICheader}
+\tikzoverlay[text width=-1cm] at (-0.03\paperwidth,0.135\paperheight) {
+  \includegraphics[scale=0.115]{logos/UICwhite.eps}};
+\tikzoverlay at (0.91\paperwidth,0.105\paperheight) {   
+  \includegraphics[scale=0.18]{logos/DepartmentWhite.eps}};
+\end{beamercolorbox}
+}
+  }%
+  \vskip0pt%
+
+
+\defbeamertemplate*{headline}{UIC theme}
+{
+  \leavevmode%
+  \hbox{%
+\hfill
+\begin{beamercolorbox}[rounded=true, left, shadow=false, wd=\paperwidth]{UICheader}\\
+		\vspace*{-0.25cm}
+		\hspace*{0.3cm} {\fontsize{5}{5}\selectfont} \hspace*{0.7\paperwidth} {\fontsize{5}{5}\selectfont}
+		\vspace*{0.25cm}	 
+\end{beamercolorbox}
+\hfill\hfill
+\vspace*{-2cm}
+\begin{beamercolorbox}[rounded=true, center, shadow=false,wd=\paperwidth]{UICsubheader}
+	\vspace{.5cm}
+	\end{beamercolorbox}
+  }%
+  \vskip0pt%
+}
+
+% Frame title: default
+
+\defbeamertemplate*{frametitle}{UIC theme}[1][left]{
+  \ifbeamercolorempty[bg]{frametitle}{}{\nointerlineskip}%
+  \@tempdima=\textwidth%
+  \advance\@tempdima by\beamer@leftmargin%
+  \advance\@tempdima by\beamer@rightmargin%
+  \begin{beamercolorbox}[sep=0.3cm,#1,wd=\the\@tempdima]{frametitle}
+  %% \pgfsetfillopacity{0}
+    \usebeamerfont{frametitle}%
+    \vbox{}\vskip-1ex%
+    \if@tempswa\else\csname beamer@fte#1\endcsname\fi%
+    \strut\insertframetitle\strut\par%
+        {%
+          \ifx\insertframesubtitle\@empty%
+          \else%
+              {\usebeamerfont{framesubtitle}\usebeamercolor[fg]{framesubtitle}\insertframesubtitle\strut\par}%
+              \fi
+        }%
+        \vskip-1ex%
+        \if@tempswa\else\vskip-.3cm\fi% set inside beamercolorbox... evil here...
+  \end{beamercolorbox}%
+  \vspace{-0.6cm}
+  \begin{beamercolorbox}[wd=0.75\paperwidth,ht=0.065cm]{frametitle underline}
+    
+  \end{beamercolorbox}
+}
+
+% \usebackgroundtemplate%
+    % {%
+      % \includegraphics[width=\paperwidth,height=\paperheight]{blocks.png}%
+    % }
+
+\setbeamersize{text margin left=1em,text margin right=1em}
+
+\mode
+<all>

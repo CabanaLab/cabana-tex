@@ -1,0 +1,33 @@
+% This is a package for Kalsec. It handles formatting of tradenames and product names.
+% It aids in making a desctinction between internal vs. external versions.
+
+\RequirePackage{textcomp} % Used for 'Registered' symbol
+\RequirePackage{lastpage}
+\RequirePackage{etoolbox}
+
+% Make a nice-looking 'registered' symbol
+\newcommand{\registered}{\protect\raisebox{5pt}{\scriptsize{\textregistered}}}
+
+% Define some commands for displaying company name and key product names
+\newcommand{\kalsec}{Kalsec}
+\newcommand{\herbalox}{Herbalox}
+\newcommand{\duralox}{Duralox}
+
+% This toggle distinguishes between documents for internal
+%   or external distribution.
+% \newtoggle{externalmarkup} % Removed 14 Mar 2012 M Wolf
+% With the \external command the user can signal
+%   that this will be sent outside the company
+\newcommand{\external}{%
+  % Redefine the commands to include registered symbols
+  \renewcommand{\kalsec}{Kalsec{\registered}}
+  \renewcommand{\herbalox}{Herbalox{\registered}}
+  \renewcommand{\duralox}{Duralox{\registered}}
+}%
+
+% Change pagestyle for the other pages to include numbers and total pages.
+\renewcommand{\ps@plain}{%
+\def \@oddfoot{%
+  \hfill Page {\thepage} of \pageref*{LastPage} \hfill
+}%
+}%

@@ -1,0 +1,129 @@
+% Copyright 2007 by Till Tantau
+%
+% This file may be distributed and/or modified
+%
+% 1. under the LaTeX Project Public License and/or
+% 2. under the GNU Public License.
+%
+% See the file doc/licenses/LICENSE for more details.
+
+\ProvidesPackageRCS $Header: /Users/joseph/Documents/LaTeX/beamer/base/themes/outer/beamerouterthemeUIC.sty,v 51a8c72084af 2012/10/16 20:17:59 mark $
+
+\mode<presentation>
+
+\setbeamercolor*{author in head/foot}{parent=palette tertiary, bg=uicdarkblue}
+\setbeamercolor*{title in head/foot}{parent=palette secondary, bg=uicdarkblue}
+\setbeamercolor*{date in head/foot}{parent=palette primary, bg=uicdarkblue}
+
+\setbeamercolor*{section in head/foot}{parent=palette tertiary}
+\setbeamercolor*{subsection in head/foot}{parent=palette primary}
+
+\newcommand{\footerheight}{0.9cm}
+\newcommand{\footerdepth}{1ex}
+
+%% \defbeamertemplate*{footline}{UIC theme}
+%% {
+%%   \leavevmode%
+%%   \hbox{%
+%%     \begin{beamercolorbox}[wd=.25\paperwidth,ht=\footerheight,dp=\footerdepth,center]{author in head/foot}%
+%%       %% \usebeamerfont{author in head/foot}\insertshortauthor\expandafter\beamer@ifempty\expandafter{\beamer@shortinstitute}{}{~~(\insertshortinstitute)}
+%%     \end{beamercolorbox}%
+%%     \begin{beamercolorbox}[wd=.25\paperwidth,ht=\footerheight,dp=\footerdepth,center]{title in head/foot}%
+%%       %% \usebeamerfont{title in head/foot}\insertshorttitle
+%%       %% \insertshortdate{}
+%%       %% \hspace*{2em}
+%%       %% \insertframenumber{} / \inserttotalframenumber\hspace*{2ex}
+%%     \end{beamercolorbox}%
+%%     \begin{beamercolorbox}[wd=.2\paperwidth,ht=\footerheight,dp=\footerdepth,right]{date in head/foot}%
+%%       \usebeamerfont{date in head/foot}
+%%       % UIC Logo
+%%       \includegraphics[scale=0.5]{uic.png}\newline
+%%       \fontsize{1pt}{5ex}{\selectfont
+%%         \uppercase{
+%%           University of Illinois\newline
+%%           at Chicago
+%%         }
+%%       }
+%%       \vspace{3ex}
+%%     \end{beamercolorbox}
+%%     \begin{beamercolorbox}[wd=.3\paperwidth,ht=\footerheight,dp=\footerdepth,left]{date in head/foot}%
+%%       \usebeamerfont{date in head/foot}
+%%       % UIC Logo
+%%       \small
+%%       \newline
+%%       Department\newline of Chemistry
+%%       \newline
+%%       \fontsize{2pt}{5ex}{\selectfont
+%%         \uppercase{College of Liberal Arts \& Sciences}
+%%       }
+%%       \vspace{0.6ex}
+%%     \end{beamercolorbox}
+%%   }%
+%%   \vskip0pt%
+%% }
+
+\defbeamertemplate*{footline}{UIC theme}
+{
+  \leavevmode%
+  \hbox{%
+    \begin{beamercolorbox}[wd=0.5\paperwidth,ht=\footerheight,dp=\footerdepth,left]{date in head/foot}%
+      % UIC Logo
+      \resizebox{!}{\footerheight}{\includegraphics{logos/UICwhite.eps}}%
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[wd=0.5\paperwidth,ht=\footerheight,dp=\footerdepth,right]{date in head/foot}%
+      \resizebox{!}{\footerheight}{\includegraphics{logos/DepartmentWhite.eps}}%
+    \end{beamercolorbox}%
+  }
+}
+
+\defbeamertemplate*{headline}{UIC theme}
+{
+  \leavevmode%
+  \hbox{%
+    \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.65ex,dp=1.5ex,right]{section in head/foot}%
+      \usebeamerfont{section in head/foot}\insertsectionhead\hspace*{2ex}
+    \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.65ex,dp=1.5ex,left]{subsection in head/foot}%
+      \usebeamerfont{subsection in head/foot}\hspace*{2ex}\insertsubsectionhead
+    \end{beamercolorbox}
+    \vskip0pt%
+  }%
+}
+
+% Frame title: default
+
+\defbeamertemplate*{frametitle}{UIC theme}[1][left]{
+  \ifbeamercolorempty[bg]{frametitle}{}{\nointerlineskip}%
+  \@tempdima=\textwidth%
+  \advance\@tempdima by\beamer@leftmargin%
+  \advance\@tempdima by\beamer@rightmargin%
+  \begin{beamercolorbox}[sep=0.3cm,#1,wd=\the\@tempdima]{frametitle}
+  %% \pgfsetfillopacity{0}
+    \usebeamerfont{frametitle}%
+    \vbox{}\vskip-1ex%
+    \if@tempswa\else\csname beamer@fte#1\endcsname\fi%
+    \strut\insertframetitle\strut\par%
+        {%
+          \ifx\insertframesubtitle\@empty%
+          \else%
+              {\usebeamerfont{framesubtitle}\usebeamercolor[fg]{framesubtitle}\insertframesubtitle\strut\par}%
+              \fi
+        }%
+        \vskip-1ex%
+        \if@tempswa\else\vskip-.3cm\fi% set inside beamercolorbox... evil here...
+  \end{beamercolorbox}%
+  \vspace{-0.6cm}
+  \begin{beamercolorbox}[wd=0.75\paperwidth,ht=0.065cm]{frametitle underline}
+    
+  \end{beamercolorbox}
+}
+
+\usebackgroundtemplate%
+    {%
+      \includegraphics[width=\paperwidth,height=\paperheight]{blocks.png}%
+    }
+
+\setbeamersize{text margin left=1em,text margin right=1em}
+
+\mode
+<all>

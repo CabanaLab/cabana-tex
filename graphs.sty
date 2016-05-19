@@ -1,0 +1,23 @@
+\RequirePackage{pgf}
+\RequirePackage{import}
+
+\newcommand{\xrdscan}[2][0.48]{%
+  \scalebox{#1}{\input{#2}}
+}%
+
+\newcommand{\map}[2][0.28]{%
+  \scalebox{#1}{\input{#2}}
+}%
+
+\newcommand{\cycle}[2][0.45]{%
+  \scalebox{#1}{\input{#2}}
+}%
+
+\newcommand{\graph}[1]{%
+  \resizebox{\textwidth}{!}{\input{#1}}
+}%
+
+\newcommand{\vgraph}[1]{%
+  \centering
+  \resizebox{!}{0.85\textheight}{\input{#1}}
+}%

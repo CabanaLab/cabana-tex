@@ -11,14 +11,14 @@ Clone this repository to `~/texmf/tex`
 \usetheme{UICclean}
 ```
 
-![Title Page](./examples/uic1_example.png) 
+![Title Page](./examples/uic2_example.png) 
 
 ### UIC2
 ```
 \usetheme{uic2}
 ```
 
-![Title Page](./examples/uic2_example.png) 
+![Title Page](./examples/uic1_example.png) 
 
 ### NECCES
 ```

@@ -2,6 +2,7 @@
 
 ## Installation
 
+### Linux
 Clone this repository to `~/texmf/tex`
 
 ## Examples

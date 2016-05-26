@@ -1,0 +1,85 @@
+%\usepackage[orientation=landscape, size=custom, width=121.92, height=91.44]{beamerposter} %4ftx3ft
+%\usepackage{changepage}
+\ProvidesPackage{posterthemeUIC}
+\usepackage{pgf}
+\usepackage{mathptmx}
+\usepackage[absolute,overlay]{textpos}
+\usepackage{varwidth}
+\usepackage{tikz}
+\usepackage{graphicx}
+\usepackage{epstopdf}
+\usepackage{ragged2e}
+\usepackage{amsmath}
+\usepackage{wrapfig}
+\usepackage{gensymb}
+\usepackage[version=4]{mhchem}
+\usepackage{varwidth}
+\usetikzlibrary{arrows,shapes}
+
+\defbeamertemplate*{title page}{customized}[1][]
+{
+\newsavebox\titleBox
+\definecolor{UICred}{rgb}{.937,.215,.258}
+\definecolor{UICblue}{rgb}{0.05,0.133,.251}
+\setbeamercolor{UICheader}{fg=white,bg=UICblue}
+\setbeamercolor{UICsubheader}{fg=white,bg=UICred}
+\setbeamercolor{UICsections}{fg=UICblue,bg=white}
+\setbeamercolor{block title}{fg=UICred,bg=white}
+
+\setlength{\TPHorizModule}{\paperwidth}						%These must
+\setlength{\TPVertModule}{\paperheight}						%stay here
+
+\newcommand{\xdownarrow}[1]{%
+  {\left\downarrow\vbox to #1{}\right.\kern-\nulldelimiterspace}}
+
+\setlength{\TPHorizModule}{\paperwidth}
+\setlength{\TPVertModule}{\paperheight}
+%\begin{document}
+
+\begin{tikzpicture}[overlay,remember picture,shift={(current page.north west)}]
+\hspace{-1cm}
+\fill[UICred] (0,-0.159\paperheight) rectangle (current page.north east);
+\fill[UICblue] (0,-0.15\paperheight) rectangle (current page.north east);
+\node[anchor=north west,inner sep=-55] at (current page.north west) {\includegraphics[scale=1.375]{logos/UICwhite.pdf}};
+\begin{scope}[shift={(0.5\paperwidth,-0.075\paperheight)}]
+	\node[align=center, text=white] at (0,0) {  
+	\begin{varwidth}{0.6\paperwidth}
+		%\begin{center}	
+		\centering
+			\fontsize{80}{80}\selectfont \inserttitle
+			
+		%\end{center}	
+	\end{varwidth}
+	%\vspace*{100cm}
+	\\
+	\\
+	\\
+	\fontsize{50}{60} \textit{\insertauthor} 
+	\vspace*{1cm}
+	\\
+	\fontsize{50}{50}\selectfont Department of Chemistry, University of Illinois at Chicago};
+\end{scope}
+\end{tikzpicture}
+
+\begin{tikzpicture}[overlay,remember picture,shift={(current page.south west)}]
+\hspace{-1cm}
+\fill[UICblue] (0,.018\paperheight) rectangle (current page.south east);
+\end{tikzpicture}
+% Re-define the \maketitle command
+
+
+}
+
+\makeatletter
+\def\@email{your.email@institute.edu} % Default value
+\newcommand{\email}[1]{\def\@email{#1}}
+\def\@conference{Conference Title} % Default value
+\newcommand{\conference}[1]{\def\@conference{#1}}
+\newcommand{\makefooter}{%
+	\hspace{-1cm}
+	\begin{tikzpicture}[overlay,remember picture,shift={(current page.south west)}]
+		\node[anchor=south west,inner sep=8, text=white] at (current page.south west) {\@conference, \insertdate};
+		\node[anchor=south east,inner sep=10, text=white] at (current page.south east) {\@email};
+	\end{tikzpicture}
+}%
+\makeatother

@@ -26,3 +26,12 @@ Clone this repository to `~/texmf/tex`
 ```
 
 ![Title Page](./examples/necces_example.png) 
+
+### UICpostertheme
+Designed for landscape 4ft x 3ft posters
+
+```
+\usetheme{UICpostertheme}
+```
+
+![Example Poster](./examples/UICpostertheme_example.png)

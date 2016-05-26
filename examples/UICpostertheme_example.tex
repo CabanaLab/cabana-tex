@@ -1,0 +1,64 @@
+\documentclass{beamer}
+%------------PREAMBLE---------------------
+\usepackage[orientation=landscape, size=custom, width=121.92, height=91.44, margin=0.5cm]{beamerposter} %4ftx3ft
+\usepackage{posterthemeUIC}
+
+\usetheme{UICpostertheme}
+
+%-------------------DEFINE TITLES AND OTHER INFO-----------------------
+
+\title{ 	
+	Example Poster Title 
+	}
+\author{A. N. Author, Anne Other Author}
+\date{\today}
+\conference{Conference Title}
+\email{your.email@uic.edu}
+
+%-------------------BEGIN DOCUMENT-------------------------------------
+
+\begin{document}
+\begin{frame}[t]
+\maketitle
+\makefooter
+
+\vspace*{1cm}
+\begin{textblock}{.3}(.0167,.18)
+\begin{block}{\fontsize{50}{150}\selectfont Title 1}
+\vspace{0.5cm}
+\justifying
+\fontsize{40}{40}\selectfont %\input{content/Introduction.txt}
+\end{block}
+%
+\vspace{2cm}
+\begin{block}{\fontsize{50}{150}\selectfont Title 2}
+\justifying
+\fontsize{40}{40}\selectfont %\input{content/WhyFluorides.txt}
+\vspace{2cm}
+\end{block}
+%
+\begin{block}{\fontsize{50}{150}\selectfont Title 3}
+\justifying
+\fontsize{40}{40}\selectfont %\input{content/WhyNano.txt}
+\end{block}
+\end{textblock}
+%
+\begin{textblock}{.3}(.3467,.18)
+\begin{block}{\fontsize{50}{150}\selectfont Title 4}
+\justifying
+\fontsize{40}{40}\selectfont %\input{content/SyntheticMethods.txt}
+\end{block}
+\end{textblock}
+
+\begin{textblock}{.3}(.6767,.18)
+\begin{block}{\fontsize{50}{150}\selectfont Title 5}
+\justifying
+\fontsize{40}{40}\selectfont %\input{content/Observations.txt}
+\end{block}
+\begin{block}{\fontsize{50}{150}\selectfont Title 6}
+\justifying
+\fontsize{40}{40}\selectfont %\input{content/FutureWork.txt}
+\end{block}
+\end{textblock}
+\end{frame}
+\end{document}

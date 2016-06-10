@@ -31,8 +31,6 @@
 \newcommand{\xdownarrow}[1]{%
   {\left\downarrow\vbox to #1{}\right.\kern-\nulldelimiterspace}}
 
-\setlength{\TPHorizModule}{\paperwidth}
-\setlength{\TPVertModule}{\paperheight}
 %\begin{document}
 
 \begin{tikzpicture}[overlay,remember picture,shift={(current page.north west)}]
@@ -42,7 +40,7 @@
 \node[anchor=north west,inner sep=-55] at (current page.north west) {\includegraphics[scale=1.375]{logos/UICwhite.pdf}};
 \begin{scope}[shift={(0.5\paperwidth,-0.075\paperheight)}]
 	\node[align=center, text=white] at (0,0) {%
-	\begin{varwidth}{0.6\paperwidth}%
+	\begin{varwidth}{0.65\paperwidth}%
 
 	  \centering
 			\fontsize{80}{80}\selectfont \inserttitle

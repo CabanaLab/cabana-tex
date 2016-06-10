@@ -1,15 +1,14 @@
 \documentclass{beamer}
 %------------PREAMBLE---------------------
 \usepackage[orientation=landscape, size=custom, width=121.92, height=91.44, margin=0.5cm]{beamerposter} %4ftx3ft
+\usepackage{lipsum}
 \usepackage{posterthemeUIC}
 
 \usetheme{UICpostertheme}
 
 %-------------------DEFINE TITLES AND OTHER INFO-----------------------
 
-\title{ 	
-	Example Poster Title 
-	}
+\title{Example Poster Title}
 \author{A. N. Author, Anne Other Author}
 \date{\today}
 \conference{Conference Title}
@@ -23,42 +22,35 @@
 \makefooter
 
 \vspace*{1cm}
-\begin{textblock}{.3}(.0167,.18)
-\begin{block}{\fontsize{50}{150}\selectfont Title 1}
-\vspace{0.5cm}
-\justifying
-\fontsize{40}{40}\selectfont %\input{content/Introduction.txt}
-\end{block}
-%
-\vspace{2cm}
-\begin{block}{\fontsize{50}{150}\selectfont Title 2}
-\justifying
-\fontsize{40}{40}\selectfont %\input{content/WhyFluorides.txt}
-\vspace{2cm}
-\end{block}
-%
-\begin{block}{\fontsize{50}{150}\selectfont Title 3}
-\justifying
-\fontsize{40}{40}\selectfont %\input{content/WhyNano.txt}
-\end{block}
-\end{textblock}
-%
-\begin{textblock}{.3}(.3467,.18)
-\begin{block}{\fontsize{50}{150}\selectfont Title 4}
-\justifying
-\fontsize{40}{40}\selectfont %\input{content/SyntheticMethods.txt}
-\end{block}
-\end{textblock}
+\begin{postercolumn}{0.0167}
+  \begin{posterblock}{Title 1}
+    \lipsum[1]
+  \end{posterblock}
 
-\begin{textblock}{.3}(.6767,.18)
-\begin{block}{\fontsize{50}{150}\selectfont Title 5}
-\justifying
-\fontsize{40}{40}\selectfont %\input{content/Observations.txt}
-\end{block}
-\begin{block}{\fontsize{50}{150}\selectfont Title 6}
-\justifying
-\fontsize{40}{40}\selectfont %\input{content/FutureWork.txt}
-\end{block}
-\end{textblock}
+  \begin{posterblock}{Title 2}
+    \lipsum[2]
+  \end{posterblock}
+
+  \begin{posterblock}{Title 3}
+    \lipsum[3]
+  \end{posterblock}
+\end{postercolumn}
+
+\begin{postercolumn}{0.3467}
+    \begin{posterblock}{Title 4}
+    \lipsum[4]
+  \end{posterblock}
+\end{postercolumn}
+
+
+\begin{postercolumn}{0.6767}
+  \begin{posterblock}{Title 5}
+    \lipsum[5]
+  \end{posterblock}
+  \begin{posterblock}{Title 6}
+    \lipsum[6]
+  \end{posterblock}
+\end{postercolumn}
+
 \end{frame}
 \end{document}

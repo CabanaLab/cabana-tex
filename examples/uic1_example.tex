@@ -1,23 +1,8 @@
-\documentclass[hyperref=hidelinks]{beamer}
-\mode<presentation>
-
-\usepackage[version=4]{mhchem}
-\usepackage{pgf}
-\usepackage{tikz}
-\usepackage{tikzscale}
-\usepackage{pgfplots}
-\usepackage{graphicx}
-\usepackage{standalone}
-\usetikzlibrary{arrows, shapes, trees, positioning}
-    \newcommand{\tikzmark}[1]{\tikz[baseline,remember picture] \coordinate (#1) {};}
-    \newcommand{\equals}{\fontsize{10}{10}\selectfont = \fontsize{50}{25}\selectfont}
-    \definecolor{darkgreen}{rgb}{0.0, 0.5, 0.0}
-    \usefonttheme[onlymath]{serif}
+\documentclass{beamer}
 
 \usetheme{uic1}
 
 \title{Title Page}
-
 \author{A. N. Author}
 \date{\today}
 
@@ -28,7 +13,12 @@
 \end{frame}
 
 \begin{frame}
-    \frametitle{Frame Title}
+  \frametitle{Frame Title}
+  \begin{itemize}
+  \item Item 1
+  \item Item 2
+  \item Item 3
+  \end{itemize}
 \end{frame}
 
 \end{document}

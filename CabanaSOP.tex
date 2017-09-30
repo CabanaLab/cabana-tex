@@ -1,0 +1,41 @@
+\documentclass{CabanaSOP}
+
+\title{Cabana Standard Operating Procedures}
+\author{Mark Wolf}
+\date{2017-05-04}
+
+\begin{document}
+
+\maketitle
+
+This document describes the use of the \texttt{CabanaSOP} class for
+creating standard operating procedures for the Cabana research group
+at the University of Illinois Chicago. It provides a 2-column layout
+with pre-defined headers.
+
+\section*{Metadata}
+
+The standard commands for setting the title, author and date are
+functional. Additionally, one can set the date of the last revision,
+which can be displayed next to the original creation date. If a
+revision is given, it will occupy the center footer, otherwise the
+date parameter will be used. An e-mail address can also be added.
+
+\begin{verbatim}
+\documentclass{CabanaSOP}
+
+# Set metadata
+\title{Replace Pump Oil}
+\author{Mark Wolf}
+\email{mwolf22@uic.edu}
+\date{2017-05-02}
+\revised{2017-05-04}
+\end{verbatim}
+
+\section*{Hazards}
+The primary hazard for this procedure is a repetitive stress injury,
+caused by poor wrist support. Proper wrist support should be used for
+both keyboard and mouse. Additionally, the display should be kept
+close to eye level.
+
+\end{document}

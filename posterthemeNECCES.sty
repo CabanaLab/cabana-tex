@@ -1,0 +1,118 @@
+\ProvidesPackage{posterthemeUIC}
+\usepackage{pgf}
+\usepackage{mathptmx}
+\usepackage[absolute,overlay]{textpos}
+\usepackage{varwidth}
+\usepackage{tikz}
+\usepackage{graphicx}
+\usepackage{ragged2e}
+\usepackage{amsmath}
+\usepackage{wrapfig}
+\usepackage{gensymb}
+\usepackage[version=4]{mhchem}
+\usepackage{varwidth}
+\usetikzlibrary{arrows,shapes}
+\beamertemplatenavigationsymbolsempty
+
+\setbeamertemplate{caption}[numbered]
+\defbeamertemplate*{title page}{customized}[1][]
+{
+\newsavebox\titleBox
+%% \definecolor{UICred}{rgb}{.937,.215,.258}
+%% \definecolor{UICblue}{rgb}{0.05,0.133,.251}
+\setbeamercolor{doebox}{fg=white,bg=doegreen}
+%% \setbeamercolor{UICheader}{fg=white,bg=UICblue}
+%% \setbeamercolor{UICsubheader}{fg=white,bg=UICred}
+%% \setbeamercolor{UICsections}{fg=UICblue,bg=white}
+% \setbeamercolor{block title}{fg=UICred,bg=white}
+%% \setbeamercolor{block title}{fg=UICblue,bg=white}
+
+\setlength{\TPHorizModule}{\paperwidth}						%These must
+\setlength{\TPVertModule}{\paperheight}						%stay here
+
+\newcommand{\xdownarrow}[1]{%
+  {\left\downarrow\vbox to #1{}\right.\kern-\nulldelimiterspace}}
+
+%\begin{document}
+
+
+\begin{tikzpicture}[overlay,remember picture,shift={(current page.north west)}]
+% \hspace{-1cm}%
+%% \fill[UICred] (0,-0.159\paperheight) rectangle (current page.north east);
+%% \fill[UICblue] (0,-0.15\paperheight) rectangle (current page.north east);
+%% \node[anchor=north west,inner sep=-55] at (current page.north west) {\includegraphics[scale=1.375]{logos/UICwhite.pdf}};
+\begin{scope}[shift={(0.5\paperwidth,-0.087\paperheight)}]
+  \node[align=center, text=white, fill=doegreen] at (0,0) {%
+    \begin{varwidth}{0.65\paperwidth}%
+
+      \centering
+      \vspace*{4ex}
+      \fontsize{80}{100}\selectfont \inserttitle
+      
+      %\end{center}	
+    \end{varwidth}
+    %\vspace*{100cm}
+    \\
+    \\
+    \\
+    \fontsize{50}{60} \textit{\insertauthor}
+    \\
+    %% \vspace*{1cm}
+    \\
+    \fontsize{40}{50}\selectfont \@affiliation{}
+    \\
+    \textcolor{doegreen}{\rule{\textwidth}{0.01mm}}
+  };
+  \vspace{3cm}
+\end{scope}
+\end{tikzpicture}
+
+\begin{tikzpicture}[overlay,remember picture,shift={(current page.south west)}]
+%% \hspace{-1cm}
+%% \fill[UICblue] (0,.018\paperheight) rectangle (current page.south east);
+\end{tikzpicture}
+% Re-define the \maketitle command
+
+
+}
+
+\makeatletter
+\def\@email{your.email@institute.edu} % Default value
+\newcommand{\email}[1]{\def\@email{#1}}
+\def\@conference{Conference Title} % Default value
+\newcommand{\conference}[1]{\def\@conference{#1}}
+\def\@affiliation{Department of Chemistry, University of Illinois at Chicago} % Default value
+\newcommand{\affiliation}[1]{\def\@affiliation{#1}}
+\setbeamertemplate{footline}{%
+  \hspace*{\fill}%
+  \includegraphics[width=0.7\textwidth]{logos/necces-logostrip.pdf}%
+  \parbox{0.25\textwidth}{\large\vspace*{-10cm}This material is based upon work supported
+    as part of NECCES, an Energy Frontier Research Center funded by
+    the U.S. Department of Energy, Office of Science, Office of Basic
+    Energy Sciences under Award Number DE-SC0012583.
+    }
+  \hspace*{\fill}\vskip2pt%
+}
+\makeatother
+
+%% \usepackage[font={large,it}]{caption}
+\usepackage{caption}
+\captionsetup{font={large,it},labelfont={large,it}}
+
+\setbeamertemplate{bibliography item}{\insertbiblabel}
+
+\newenvironment{posterblock}[1]{
+  \begin{block}{\fontsize{50}{150}\selectfont #1}
+    \justifying
+    \fontsize{40}{40}\selectfont
+} {
+    \vspace{2cm}
+  \end{block}
+}
+
+\newenvironment{postercolumn}[1] {
+  % Argument is the position determined by column number
+  \begin{textblock}{.3}(#1,.18)
+}{
+  \end{textblock}
+}

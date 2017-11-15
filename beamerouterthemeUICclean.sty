@@ -12,7 +12,7 @@
 % or
 % \tikzoverlay[text width=5cm] at (-1cm,-5cm) {content};
 \def\tikzoverlay{%
-   \tikz[baseline,overlay]\node[every overlay node]
+   \tikz[baseline, remember picture,overlay]\node[every overlay node]
 }%
 
 \mode<presentation>
@@ -48,20 +48,35 @@
 {
   \leavevmode%
   \hbox{%
-\begin{beamercolorbox}[rounded=false, left, shadow=false,wd=1.1\paperwidth, ht=0.008\paperheight]{UICsubheader}
+    \begin{beamercolorbox}[
+        rounded=false,
+        left,
+        shadow=false,
+        wd=1\paperwidth,
+        ht=0.008\paperheight
+      ]{UICsubheader}
 	\end{beamercolorbox}
     }
     \leavevmode
-    \hbox{
-    \hspace*{-0.01211\paperwidth}
-\begin{beamercolorbox}[rounded=false, left, shadow=false, wd=1.1\paperwidth, ht=0.1\paperheight]{UICheader}
-\tikzoverlay[text width=-1cm] at (-0.03\paperwidth,0.135\paperheight) {
-  \includegraphics[scale=0.115]{logos/UICwhite.pdf}};
-\tikzoverlay at (0.91\paperwidth,0.105\paperheight) {   
-  \includegraphics[scale=0.18]{logos/DepartmentWhite.pdf}};
-\end{beamercolorbox}
-}
-  }%
+    %% \hbox{
+      %% \hspace*{-0.01211\paperwidth}
+      \begin{beamercolorbox}[
+          rounded=false,
+          left,
+          shadow=false,
+          leftskip=0ex,
+          wd=1\paperwidth,
+          ht=0.1\paperheight
+        ]{UICheader}
+    \tikzoverlay[anchor=south west, inner sep=0, outer sep=1] at (current page.south west) {
+      \includegraphics[height=0.0925\paperheight]{logos/UICwhite.pdf}
+    };
+    \tikzoverlay[left=0.004\paperwidth of current page.south east, anchor=south east, inner sep=0, outer sep=0] at (current page.south east) {
+      \includegraphics[height=0.095\paperheight]{logos/DepartmentWhite.pdf}
+    };
+      \end{beamercolorbox}
+    %% }
+}%
   \vskip0pt%
 
 

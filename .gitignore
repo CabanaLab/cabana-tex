@@ -4,3 +4,4 @@
 *.log
 *.fdb_latexmk
 changes
+./changes

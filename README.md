@@ -5,34 +5,30 @@
 ### Linux
 Clone this repository to `~/texmf/tex`
 
-## Examples
-
-### UICclean (or UIC1)
-```
-\usetheme{UICclean}
+```bash
+git clone https://github.com/CabanaLab/cabana-tex.git ~/texmf/tex/.
 ```
 
-![Title Page](./examples/uic2_example.png) 
+## beamerthemes
+UIC and NECCES themed presentations for use in Beamer.
 
-### UIC2
-```
-\usetheme{uic2}
-```
+[Examples](./beamerthemes/README.md)
 
-![Title Page](./examples/uic1_example.png) 
+## documentclasses
+Documents used in standard laboratory operations
 
-### NECCES
-```
-\usetheme{necces}
-```
+## graphics
+Tikzpictures and other graphics used in classes and available for use.
 
-![Title Page](./examples/necces_example.png) 
+[Examples](./graphics/README.md)
 
-### UICpostertheme
-Designed for landscape 4ft x 3ft posters
+## logos
+Vector graphics of logos for JCESR, ANL, ARL, DOE, NSF, NECCES, and UIC used in classes. 
 
-```
-\usetheme{UICpostertheme}
-```
+## posterthemes
+UIC and NECCES themes posters for use in Beamer.
 
-![Example Poster](./examples/UICpostertheme_example.png)
+[Examples](./posterthemes/README.md)
+
+## styles
+Style (`.sty`) files used by other classes

@@ -1,0 +1,97 @@
+\documentclass{CabanaSOP}
+
+\title{Cabana Unattended Laboratory Operation Notices (ULONs)}
+\author{Michael Plews}
+\date{2018-01-07}
+
+\begin{document}
+
+\maketitle
+
+This document describes the use of the \texttt{CabanaULON} class for
+creating unattended laboratory operation notices for the Cabana
+research group at the University of Illinois Chicago. It provides a
+formatted layout with pre-defined tables.
+
+\section*{Example}
+
+All commands for setting the variables are functional. A full list of
+commands can be found at the end of this document.
+
+\begin{verbatim}
+\documentclass{CabanaSOP}
+
+%Reusable information such as \Name,
+%\PI can be input from a reusable
+%source
+\input{info.txt}
+
+\Chemicals{
+  Lithium Fluoride \newline
+  Iron (III) Fluoride \newline
+  Carbon
+}
+\Room{4163SES}
+\Location{Tube Furnace}
+\Start{\today}
+\End{\tomorrow}
+
+%% Hazards must be marked as {\checked}
+\Biohazard{\checked}
+\XRay{\checked}
+
+\begin{document}
+\makeulon 
+\end{document}
+\end{verbatim}
+
+\section*{Command List}
+\subsection{User Information}
+\begin{verbatim}
+%Define the group Chemical Hygiene Officer
+\CHO{}
+
+%Your name
+\Name{}
+
+%Your contact number
+\ContactNumber{}
+
+%Lab PI
+\PI{}
+
+%Lab PI's Number
+\PINumber{}
+\end{verbatim}
+
+\subsection{Experiment Information}
+\begin{verbatim}
+%Experiment start date 
+\Start{}
+
+%Experiment start time
+\StartTime{}
+
+%Experiment end date
+\End{}
+
+%Experiment end time
+\EndTime{}
+
+%Experiment description
+\Description{}
+
+%Room number of experiment
+\Room{}
+
+%Location within room 
+\Location{}
+
+%Chemicals used in synthesis 
+\Chemicals{}
+
+%Emergency Shutdown procedure
+\EmergencyShutdown{}
+\end{verbatim}
+
+\end{document}

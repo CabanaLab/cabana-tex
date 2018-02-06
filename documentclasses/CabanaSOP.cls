@@ -12,7 +12,7 @@
 
 %% Command for including the authors e-mail address
 %% Default's to Jordi's e-mail address
-\newcommand{\@email}{jcabana@uic.edu}
+\newcommand{\@email}{}
 \newcommand{\email}[1]{\renewcommand{\@email}{#1}}
 %% Command for including a revision date in the title/footer
 \newcommand{\revised}[1]{\newcommand{\@revised}{#1}}

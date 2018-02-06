@@ -18,6 +18,7 @@
 \RequirePackage{tabularx}
 \RequirePackage{tikz}
 \RequirePackage{soul}
+\RequirePackage{siunitx}        %For using units
 \RequirePackage{xcolor}
 	\definecolor{fadegray}{gray}{0.75}
 
@@ -185,7 +186,7 @@
 \newcommand*{\HotPlate}[1]{\renewcommand*{\@HotPlate}{#1 Hot Plate/Stirrer}}
 
 \newcommand*{\@UnderPressure}{\unchecked Under Pressure}
-\newcommand*{\UnderPressure}[1]{\renewcommand*{\@ReactionUnderPressure}{#1 Under Pressure}}
+\newcommand*{\UnderPressure}[1]{\renewcommand*{\@UnderPressure}{#1 Under Pressure}}
 
 \newcommand*{\@WaterReactive}{\unchecked Water Reactive}
 \newcommand*{\WaterReactive}[1]{\renewcommand*{\@WaterReactive}{#1 Water Reactive}}

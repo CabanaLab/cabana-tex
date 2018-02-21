@@ -2,6 +2,10 @@
 
 ## XAS
 ```tex
+%% Preamble
+\usepackage{standalone}
+...
+%% Document
 \input{xas.tex}
 ```
 
@@ -9,6 +13,10 @@
 
 ## Density of States
 ```tex
+%% Preamble
+\usepackage{standalone}
+...
+%% Document
 \input{density_of_states.tex}
 ```
 

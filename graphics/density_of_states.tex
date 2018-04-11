@@ -1,5 +1,5 @@
-\documentclass{standalone}
-\usepackage{tikz}
+\documentclass[crop,tikz]{standalone}
+% \usepackage{tikz}
 \usepackage{tikzscale}
 \usepackage{mhchem}
 \usepackage{pgf}
@@ -44,9 +44,9 @@
     \draw[thick, dashed, overlay] (Li.center) ++(1.5,0) -- ++(1.5,0) node[anchor=west] () {E$_{f(A)}$};
     \node at (Li.center) {Li $2s$};
 
-    \node[right=8 of 4s, anchor=west,overlay] () {O $3s$};
-    \node[right=8 of 2p, anchor=west,overlay] () {O $2p$};
-    \node[right=8 of 3d, anchor=west,overlay] () {M $3d$};
+    \node[right=8 of 4s, anchor=west] () {O $3s$};
+    \node[right=8 of 2p, anchor=west] () {O $2p$};
+    \node[right=8 of 3d, anchor=west] () {M $3d$};
 
     %% Li0.5
     \node[right=3 of a.center] (b) {};

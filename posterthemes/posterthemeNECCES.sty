@@ -43,7 +43,7 @@
 %% \node[anchor=north west,inner sep=-55] at (current page.north west) {\includegraphics[scale=1.375]{logos/UICwhite.pdf}};
 \begin{scope}[shift={(0.5\paperwidth,-0.087\paperheight)}]
   \node[align=center, text=white, fill=doegreen] at (0,0) {%
-    \begin{varwidth}{0.65\paperwidth}%
+    \begin{varwidth}{0.85\paperwidth}%
 
       \centering
       \vspace*{4ex}
@@ -55,11 +55,17 @@
     \\
     \\
     \\
-    \fontsize{50}{60} \textit{\insertauthor}
+    \begin{varwidth}{0.80\paperwidth}%
+      \centering
+      \fontsize{50}{60} \textit{\insertauthor}
+    \end{varwidth}
     \\
-    %% \vspace*{1cm}
+    \vspace*{1cm}
     \\
-    \fontsize{40}{50}\selectfont \@affiliation{}
+    \begin{varwidth}{0.80\paperwidth}%
+      \centering
+      \fontsize{40}{50}\selectfont \@affiliation{}
+    \end{varwidth}
     \\
     \textcolor{doegreen}{\rule{\textwidth}{0.01mm}}
   };

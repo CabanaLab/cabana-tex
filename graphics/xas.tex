@@ -1,4 +1,4 @@
-\documentclass{standalone}
+\documentclass[tikz]{standalone}
 \usepackage{tikz}
 \usepackage{tikzscale}
 \usetikzlibrary{intersections,positioning,calc,decorations.pathmorphing}
@@ -20,7 +20,7 @@
   \draw[thick] (a) ++(0,2) -- node[] (y) {} +(2,0) node[anchor=south west] (u) {\color{black!50}E$_f$} ;
   
   \draw[fill=red] (z.center) circle (0.1) node (z1) {};
-  \node[below=0.5 of z1, anchor=north, align=center] (z2) {Total\\ Electron\\ Yield\\(5nm)};
+  \node[below=0.5 of z1, anchor=north, align=center] (z2) {Electron\\Promotion};
   \draw[fill=red] (x.center) circle (0.1) node (x1) {};
   \draw[fill=red] (y.center) ++(0,0.3) circle (0.1) node (y1) {};
   \draw[fill=red] (y.center) ++(0.3,0.3) circle (0.1) node (y2) {};
@@ -40,7 +40,7 @@
   \draw[thick] (b) ++(0,2) -- +(2,0);
   
   \draw[fill=white, draw=red, thick] (h.center) circle (0.1) node[] (h1) {};
-  \node[below=0.5 of h1, anchor=north, align=center] (h2) {Total\\ Fluorescence\\ Yield\\(20nm)};
+  \node[below=0.5 of h1, anchor=north, align=center] (h2) {X-ray\\Fluoresence};
   \draw[fill=red] (k.center) circle (0.1) node (k1) {};
   \draw[fill=red] (l.center) ++(0.3,0) circle (0.1) node (l1) {};
   %% \draw[fill=red] (l.center) ++(0.3,0.3) circle (0.1) node (y2) {};
@@ -63,7 +63,7 @@
   \draw[fill=red] (D.center) ++(0.3,0) circle (0.1) node (D1) {};
   \draw[fill=red] (E.center) ++(0.3,0.30) circle (0.1) node (E1) {};
   \draw[fill=white, draw=red, thick] (A.center) circle (0.1) node (A1) {};
-  \node[below=0.5 of A1, anchor=north, align=center] (C2) {Auger\\ Electron\\ Yield\\(1nm)};
+  \node[below=0.5 of A1, anchor=north, align=center] (C2) {Auger\\Decay};
 
   \draw[ultra thick,airforce, -latex] (C1) -- (A1);
   \draw[ultra thick,airforce, -latex , bend left=30, looseness=2] (D1) -- (E1);

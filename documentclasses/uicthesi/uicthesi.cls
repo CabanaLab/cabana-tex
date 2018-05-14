@@ -1081,6 +1081,7 @@
 \def\bibforma{\@bibformatrue\bibliographystyle{forma}}
 \def\bibformb{\@bibformafalse\bibliographystyle{formb}}
 \def\bibformc{\@bibformafalse\bibliographystyle{formc}}
+\def\bibformd{\@bibformafalse\bibliographystyle{formd}}
  
 \def\bibob{(}\def\bibcb{)}
 \def\roundbrackets{\def\bibob{(}\def\bibcb{)}}

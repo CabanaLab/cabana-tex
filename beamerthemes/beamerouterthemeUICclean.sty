@@ -72,6 +72,12 @@
     \tikzoverlay[anchor=south west, inner sep=0, outer sep=1] at (current page.south west) {
       \includegraphics[height=0.0925\paperheight]{logos/UICwhite.pdf}
     };
+    \tikzoverlay[above=0.03\paperwidth of current page.south, anchor=south, inner sep=0, outer sep=0] at (current page.south) {
+      \if@doFrameNumbering
+      \insertframenumber/\inserttotalframenumber
+      \else
+      \fi
+    };
     \tikzoverlay[left=0.004\paperwidth of current page.south east, anchor=south east, inner sep=0, outer sep=0] at (current page.south east) {
       \includegraphics[height=0.095\paperheight]{logos/DepartmentWhite.pdf}
     };

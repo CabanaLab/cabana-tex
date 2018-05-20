@@ -7,6 +7,14 @@
 
 ![Title Page](../examples/uic2_example.png) 
 
+### Options
+Usage:
+```tex
+\usetheme[options]{UICclean}
+```
+
+`framenumbering` - Adds frame numbers to the footline of each slide
+
 ## UIC2
 ```tex
 \usetheme{uic2}

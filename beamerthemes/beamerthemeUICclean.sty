@@ -1,5 +1,11 @@
 \mode<presentation>
 
+\newif\if@doFrameNumbering
+\@doFrameNumberingfalse
+
+\DeclareOption{framenumbering}{\@doFrameNumberingtrue}
+\ProcessOptions
+
 \newif\ifbeamer@secheader
 \beamer@secheaderfalse
 

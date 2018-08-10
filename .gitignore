@@ -6,3 +6,7 @@
 changes
 ./changes
 *#*
+*.snm
+*.toc
+*.nav
+*.out

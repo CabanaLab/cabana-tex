@@ -4,7 +4,7 @@ DENSITY = -density 300
 QUALITY = -quality 90
 RM = rm -f
 
-all: necces_example.pdf uic1_example.pdf uic2_example.pdf UICpostertheme_example.pdf clean
+all: necces_example.pdf uic1_example.pdf uic2_example.pdf UICpostertheme_example.pdf NECCESpostertheme_example.pdf clean
 
 necces_example.pdf: necces_example.tex
 	${TEX} necces_example.tex
@@ -29,6 +29,12 @@ UICpostertheme_example.pdf: UICpostertheme_example.tex
 	${TEX} UICpostertheme_example.tex
 	${CONVERT} -density 60 UICpostertheme_example.pdf ${QUALITY} UICpostertheme_example.png
 UICpostertheme_example.tex:
+
+NECCESpostertheme_example.pdf: NECCESpostertheme_example.tex
+	${TEX} NECCESpostertheme_example.tex
+	${TEX} NECCESpostertheme_example.tex
+	${CONVERT} -density 60 NECCESpostertheme_example.pdf ${QUALITY} NECCESpostertheme_example.png
+NECCESpostertheme_example.tex:
 
 clean:
 	${RM} *.out

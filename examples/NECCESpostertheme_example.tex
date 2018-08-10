@@ -1,0 +1,55 @@
+\documentclass{beamer}
+%------------PREAMBLE---------------------
+\usepackage[orientation=landscape, size=custom, width=121.92, height=91.44, margin=0.5cm]{beamerposter} %4ftx3ft
+\usepackage{lipsum}
+\usepackage{xprintlen}
+\usepackage{posterthemeNECCES}
+
+\usetheme{NECCESpostertheme}
+
+%-------------------DEFINE TITLES AND OTHER INFO-----------------------
+
+\title{Example Poster Title}
+\author{A. N. Author, Anne Other Author}
+\institute{School of Hard Knocks}
+\date{\today}
+\conference{Conference Title}
+\email{your.email@uic.edu}
+
+%-------------------BEGIN DOCUMENT-------------------------------------
+
+\begin{document}
+\justify
+\begin{frame}[t]
+  \maketitle
+
+\vspace*{1cm}
+\begin{postercolumn}{0.0167}
+  Column width: \printlen[5][in]{\textwidth}
+  \section{Title 1}
+  \lipsum[1]
+
+  \section{Title 2}
+  \lipsum[2]
+  
+\end{postercolumn}
+
+\begin{postercolumn}{0.3467}
+    \section{Title 3}
+    \lipsum[3]
+
+    \section{Title 4}
+    \lipsum[4]
+\end{postercolumn}
+
+
+\begin{postercolumn}{0.6767}
+  \section{Title 5}
+  \lipsum[5]
+
+  \section{Title 6}
+  \lipsum[6]
+\end{postercolumn}
+
+\end{frame}
+\end{document}

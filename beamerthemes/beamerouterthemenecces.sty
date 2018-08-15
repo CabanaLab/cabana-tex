@@ -11,6 +11,10 @@
 
 \mode<presentation>
 
+\usepackage{ragged2e}
+\usepackage{caption}
+\captionsetup{font=scriptsize,labelfont=scriptsize,labelformat=empty}
+
 \setbeamercolor*{author in head/foot}{parent=palette tertiary, bg=white}
 \setbeamercolor*{title in head/foot}{parent=palette secondary, bg=white}
 \setbeamercolor*{date in head/foot}{parent=palette primary, bg=white}
@@ -76,6 +80,8 @@
 }
 
 \setbeamersize{text margin left=1em,text margin right=1em}
+
+\newcommand{\figcaption}[1]{\scriptsize#1}%
 
 \mode
 <all>

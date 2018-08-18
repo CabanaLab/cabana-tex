@@ -25,6 +25,16 @@
 \newcommand{\footerheight}{0.9cm}
 \newcommand{\footerdepth}{1ex}
 
+\beamertemplatenavigationsymbolsempty
+\setbeamertemplate{footline}[frame number]{}
+
+\setbeamertemplate{footline}{%
+  \hfill%
+  \usebeamercolor[fg]{page number in head/foot}%
+  \usebeamerfont{page number in head/foot}%
+  \insertframenumber\,/\,\inserttotalframenumber\kern1em\vskip2pt%
+}
+
 %% \defbeamertemplate*{footline}{NECCES theme}
 %% {
 %%   \leavevmode%

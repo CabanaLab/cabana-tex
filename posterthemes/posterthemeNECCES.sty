@@ -11,7 +11,7 @@
 \usepackage{gensymb}
 \usepackage[version=4]{mhchem}
 \usepackage{caption}
-\captionsetup{font={large,it},labelfont={large,it}}
+\captionsetup{font={small,it},labelfont={small,it}}
 \usetikzlibrary{arrows,shapes}
 \beamertemplatenavigationsymbolsempty
 
@@ -21,7 +21,15 @@
 \makeatother
 
 \makeatletter
+\renewcommand\large{\@setfontsize\Large{45pt}{52}}
+\makeatother
+
+\makeatletter
 \renewcommand\normalsize{\@setfontsize\normalsize{40pt}{45}}
+\makeatother
+
+\makeatletter
+\renewcommand\small{\@setfontsize\normalsize{30pt}{33}}
 \makeatother
 
 \setbeamertemplate{caption}[numbered]

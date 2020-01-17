@@ -1,0 +1,64 @@
+\mode<presentation>
+
+\setbeamertemplate{background}{
+  \begin{tikzpicture}
+    \useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
+    %% Prepare the titleslide
+    \ifnum\thepage<2\relax%
+    %% Create the colored boxes across the title slide
+    \fill[color=anlgreen] (0,0.33\paperheight) rectangle (0.4cm,0.72\paperheight);
+    \fill[color=anlblue] (0.4cm,0.33\paperheight) rectangle (0.53\paperwidth,0.72\paperheight);
+    \fill[color=gray!75] (0.529\paperwidth,0.33\paperheight) rectangle (\the\paperwidth,0.72\paperheight);
+    %% ANL Logo to the upper right corner
+    \node[inner sep=0pt,anchor=east] (anllogo) at (\paperwidth-0.35cm,\paperheight-1.4cm) {\includegraphics[width=4.5cm]{../logos/ANL_CMYK.pdf}};
+    %% Add DOE logo and disclaimer to the lower left corner
+    \node[anchor=east] (doelogo) at (3cm, 0.5cm) {%
+      \includegraphics[width=2.5cm]{../logos/DOE_logo_black.pdf}};
+    \node[anchor=west,text width=2.8cm] (doetext) at (2.8cm, 0.5cm) {%
+      \fontsize{4pt}{5pt}\selectfont
+      Argonne National Laboratory is a U.S.\ Department of Energy
+      laboratory managed by UChicago Argonne, LLC.\par};    
+    \fi%
+
+    %% Prepare all the other (non-title) slides
+    \ifnum\thepage>1\relax%
+    \fill[color=anlgreen] (0,0) rectangle (0.4cm,\paperheight);
+    %% Add DOE logo and disclaimer to the lower left corner
+    \scalebox{0.7}{%
+      \node[anchor=east] (doelogo) at (3.5cm, 0.5cm) {%
+        \includegraphics[width=2.5cm]{../logos/DOE_logo_black.pdf}};
+      \node[anchor=west,text width=2.8cm] (doetext) at (3.3cm, 0.5cm) {%
+        \fontsize{4pt}{5pt}\selectfont
+        Argonne National Laboratory is a U.S.\ Department of Energy
+        laboratory managed by UChicago Argonne, LLC.\par};}
+      %% Add ANL logo to lower right-hand corner
+    \node[inner sep=0pt,anchor=east] (anllogo) at (\paperwidth-0.5cm,0.5cm) {\includegraphics[width=2.154cm]{../logos/ANL_CMYK.pdf}};
+    \fi%
+    
+    %% \ifnum\thepage>1\relax%
+    %% \fill[white,opacity=1] (0,0) rectangle(\the\paperwidth,\the\paperheight);
+    %% \fi
+  \end{tikzpicture}
+}
+
+
+% Title page
+\defbeamertemplate*{title page}{anl}[1][]
+{ 
+  \vskip1.5cm%
+   \hspace{-0.61cm}\begin{beamercolorbox}[wd=0.5012\paperwidth,leftskip=0cm,sep=8pt,#1]{title page header}
+      \usebeamerfont{title}\inserttitle\par%
+    \end{beamercolorbox}%
+    \vskip0.75cm%
+    \begin{beamercolorbox}[wd=12cm,leftskip=3cm,#1]{author}
+      \usebeamerfont{author}\insertauthor%
+    \end{beamercolorbox}
+     \vskip0.2cm%
+    \begin{beamercolorbox}[wd=12cm,leftskip=3cm,#1]{date}
+      \usebeamerfont{author}\insertdate%
+    \end{beamercolorbox}
+  \vfill
+}
+
+\mode
+<all>

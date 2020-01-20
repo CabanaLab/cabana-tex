@@ -1,63 +1,98 @@
 \mode<presentation>
 
+\newlength{\titlebarheight}
+\setlength{\titlebarheight}{0.39\paperheight}
+\newlength{\subtitlewidth}
+\setlength{\subtitlewidth}{\paperwidth}
+\addtolength{\subtitlewidth}{-6.0cm}
+\newlength{\titlewidth}
+\setlength{\titlewidth}{0.55\paperwidth}
+\newlength{\datewidth}
+\setlength{\datewidth}{\paperwidth}
+\addtolength{\datewidth}{-7.5cm}
+  
 \setbeamertemplate{background}{
   \begin{tikzpicture}
     \useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
     %% Prepare the titleslide
     \ifnum\thepage<2\relax%
     %% Create the colored boxes across the title slide
-    \fill[color=anlgreen] (0,0.33\paperheight) rectangle (0.4cm,0.72\paperheight);
-    \fill[color=anlblue] (0.4cm,0.33\paperheight) rectangle (0.53\paperwidth,0.72\paperheight);
-    \fill[color=gray!75] (0.529\paperwidth,0.33\paperheight) rectangle (\the\paperwidth,0.72\paperheight);
+    \fill[color=anlgreen] (0,0.72\paperheight-\titlebarheight) rectangle (0.4cm,0.72\paperheight);
+    \fill[color=anlblue] (0.4cm,0.72\paperheight-\titlebarheight) rectangle (\paperwidth,0.72\paperheight);
     %% ANL Logo to the upper right corner
-    \node[inner sep=0pt,anchor=east] (anllogo) at (\paperwidth-0.35cm,\paperheight-1.4cm) {\includegraphics[width=4.5cm]{../logos/ANL_CMYK.pdf}};
+    \node[inner sep=0pt,anchor=east] (anllogo) at (\paperwidth-0.35cm,\paperheight-1.4cm) {\includegraphics[width=4.5cm]{logos/ANL_CMYK.pdf}};
+    %% Accent image (default is argonne photo
+    \node[inner sep=0pt,anchor=north east,align=right] (photo) at (\paperwidth, 0.72\paperheight) {\includegraphics[height=\titlebarheight]{graphics/anl-aerial.jpg}};
     %% Add DOE logo and disclaimer to the lower left corner
     \node[anchor=east] (doelogo) at (3cm, 0.5cm) {%
-      \includegraphics[width=2.5cm]{../logos/DOE_logo_black.pdf}};
+      \includegraphics[width=2.5cm]{logos/DOE_logo_black.pdf}};
     \node[anchor=west,text width=2.8cm] (doetext) at (2.8cm, 0.5cm) {%
       \fontsize{4pt}{5pt}\selectfont
       Argonne National Laboratory is a U.S.\ Department of Energy
-      laboratory managed by UChicago Argonne, LLC.\par};    
+      laboratory managed by UChicago Argonne, LLC.\par};
     \fi%
 
     %% Prepare all the other (non-title) slides
     \ifnum\thepage>1\relax%
     \fill[color=anlgreen] (0,0) rectangle (0.4cm,\paperheight);
     %% Add DOE logo and disclaimer to the lower left corner
-    \scalebox{0.7}{%
-      \node[anchor=east] (doelogo) at (3.5cm, 0.5cm) {%
-        \includegraphics[width=2.5cm]{../logos/DOE_logo_black.pdf}};
+    \scalebox{0.4}{%
+      \node[anchor=east] (doelogo) at (4.5cm, 0.5cm) {%
+        \includegraphics[width=2.5cm]{logos/DOE_logo_black.pdf}};
       \node[anchor=west,text width=2.8cm] (doetext) at (3.3cm, 0.5cm) {%
         \fontsize{4pt}{5pt}\selectfont
         Argonne National Laboratory is a U.S.\ Department of Energy
         laboratory managed by UChicago Argonne, LLC.\par};}
       %% Add ANL logo to lower right-hand corner
-    \node[inner sep=0pt,anchor=east] (anllogo) at (\paperwidth-0.5cm,0.5cm) {\includegraphics[width=2.154cm]{../logos/ANL_CMYK.pdf}};
+    \node[inner sep=0pt,anchor=south east] (anllogo) at (\paperwidth-0.5cm,0.cm) {\includegraphics[width=1.5cm]{logos/ANL_CMYK.pdf}};
     \fi%
     
-    %% \ifnum\thepage>1\relax%
-    %% \fill[white,opacity=1] (0,0) rectangle(\the\paperwidth,\the\paperheight);
-    %% \fi
   \end{tikzpicture}
 }
 
-
 % Title page
-\defbeamertemplate*{title page}{anl}[1][]
-{ 
-  \vskip1.5cm%
-   \hspace{-0.61cm}\begin{beamercolorbox}[wd=0.5012\paperwidth,leftskip=0cm,sep=8pt,#1]{title page header}
-      \usebeamerfont{title}\inserttitle\par%
-    \end{beamercolorbox}%
-    \vskip0.75cm%
-    \begin{beamercolorbox}[wd=12cm,leftskip=3cm,#1]{author}
-      \usebeamerfont{author}\insertauthor%
-    \end{beamercolorbox}
-     \vskip0.2cm%
-    \begin{beamercolorbox}[wd=12cm,leftskip=3cm,#1]{date}
-      \usebeamerfont{author}\insertdate%
-    \end{beamercolorbox}
-  \vfill
+\defbeamertemplate*{title page}{anl}[2][]{%
+  \begin{tikzpicture}
+    \useasboundingbox (28.4pt,0) rectangle(\the\paperwidth,\the\paperheight);
+    % Add title to the blue box
+    \node[inner sep=0pt,anchor=north west] (title) at (0.4cm,0.72\paperheight) {
+      \begin{beamercolorbox}[wd=\titlewidth,leftskip=0cm,sep=8pt,#1]{title page header}
+        \usebeamerfont{title}\inserttitle\par%
+    \end{beamercolorbox}};
+    % Add subtitle to top of title slide
+    \node[inner sep=0pt,anchor=west] (subtitle) at (0.4cm,\paperheight-1.4cm) {
+      \begin{beamercolorbox}[wd=\subtitlewidth,leftskip=0cm,sep=8pt,#1]{title page subheader}
+        \usebeamerfont{subtitle}\insertsubtitle\par%
+    \end{beamercolorbox}};
+    \node[inner sep=0pt,anchor=west] (subtitle) at (0.4cm,0.28\paperheight) {
+      \begin{beamercolorbox}[wd=0.9\paperwidth,leftskip=8pt,sep=8pt,#1]{author}
+        \usebeamerfont{author}\insertauthor%
+    \end{beamercolorbox}};
+    \node[inner sep=0pt,anchor=south west] (subtitle) at (6.5cm,0) {
+      \begin{beamercolorbox}[wd=\datewidth,leftskip=8pt,sep=8pt,#1]{date}
+        \usebeamerfont{date}\insertdate%
+      \end{beamercolorbox}};
+    %% \fill[color=anlgreen] (0,0) rectangle (\paperwidth,\paperheight);
+  \end{tikzpicture}
+  %% \setlength{\subtitlewidth}{\paperwidth}
+  %% \addtolength{\subtitlewidth}{-6.0cm}
+  %% \hspace{-0.49cm}
+  %% \begin{beamercolorbox}[wd=\subtitlewidth,leftskip=0cm,#1]{title page subheader}
+  %%   \usebeamerfont{subtitle}\insertsubtitle\par%
+  %% \end{beamercolorbox}
+  %% \vskip1.6cm%
+  %% \hspace{-0.61cm}\begin{beamercolorbox}[wd=0.5012\paperwidth,leftskip=0cm,sep=8pt,#1]{title page header}
+  %%   \usebeamerfont{title}\inserttitle\par%
+  %% \end{beamercolorbox}%
+  %% \vskip0.25\paperheight%
+  %% \begin{beamercolorbox}[wd=12cm,leftskip=1cm,#1]{author}
+  %%   \usebeamerfont{author}\insertauthor%
+  %% \end{beamercolorbox}
+  %% \vskip0.2cm%
+  %% \begin{beamercolorbox}[wd=12cm,leftskip=1cm,#1]{date}
+  %%   \usebeamerfont{author}\insertdate%
+  %% \end{beamercolorbox}
+  %% \vfill
 }
 
 \mode

@@ -1,14 +1,16 @@
 \documentclass[aspectratio=149]{beamer}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
+
+\usetheme{anl}
+
 \title{There Is No Largest Prime Number}
 \subtitle{But they do get pretty big\ldots}
 \date[ISPN ’80]{27th International Symposium of Prime Numbers}
 \author[Euclid]{Euclid of Alexandria \texttt{euclid@anl.gov}}
+\coverphoto{graphics/anl-aerial.jpg}
 
 %% Used guidance from: https://tex.stackexchange.com/questions/146529/design-a-custom-beamer-theme-from-scratch
-
-\usetheme{anl}
 
 \begin{document}
 
@@ -31,6 +33,37 @@
       \qedhere
     \end{enumerate}
   \end{proof}
+\end{frame}
+
+\section{The Proof}
+
+\begin{frame}{}
+\tableofcontents
+\end{frame}
+
+\begin{frame}
+  \frametitle{Implications Of Our Theorem}
+  \begin{block}{Counting Primes}
+    No matter which prime you have, you can find a bigger one.
+  \end{block}
+  \begin{exampleblock}{How We Count Primes}
+    3 is prime, but so is 7 and 7 is bigger than 3.
+  \end{exampleblock}
+  \begin{alertblock}{Warning!}
+    Thinking you have the biggest prime can lead to poor results:
+    \begin{itemize}
+    \item Embarrassment
+    \item Wrong results
+    \item Broken encryption
+    \end{itemize}
+  \end{alertblock}
+\end{frame}
+
+\begin{frame}{Next steps}
+  \begin{itemize}
+  \item Look for some big prime numbers.
+  \item Then look for a bigger one.
+  \end{itemize}
 \end{frame}
 
 \end{document}

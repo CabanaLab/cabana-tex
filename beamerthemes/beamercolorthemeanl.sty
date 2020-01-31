@@ -1,7 +1,14 @@
 \mode<presentation>
 
 \definecolor{anlgreen}{RGB}{122, 184, 0}
+\definecolor{anlviolet}{RGB}{91, 0, 145}
 \definecolor{anlblue}{RGB}{0, 96, 156}
+\definecolor{anlred}{RGB}{205, 32, 44}
+\definecolor{anlteal}{RGB}{0, 161, 156}
+\definecolor{anlyellow}{RGB}{248, 178, 0}
+\definecolor{anlprocessblue}{RGB}{0, 130, 202}
+\definecolor{anlorange}{RGB}{255, 121, 0}
+\definecolor{anlgray}{RGB}{102, 102, 102}
 \definecolor{darkgray}{gray}{0.25}
 
 \setbeamercolor*{title page header}{fg=white}
@@ -15,14 +22,18 @@
 
 \setbeamercolor{pagenums}{fg=black!30}
 
-\setbeamercolor{structure}{fg=darkgray}
+\setbeamercolor{local structure}{parent=normal text}
+% Change the color for items inside text blocks
+% \addtobeamertemplate{block begin}{\setbeamercolor{local structure}{parent=structure}}{}
+\addtobeamertemplate{block begin}{\setbeamercolor{local structure}{use=structure,parent=structure}}{}
 
 \setbeamercolor{normal text}{fg=darkgray}
 \setbeamercolor{example text}{fg=anlgreen}
+\setbeamercolor{alerted text}{fg=anlred}
 
-\setbeamercolor{block title}{use=structure,fg=white,bg=anlblue!75!black}
-\setbeamercolor{block title alerted}{use=alerted text,fg=white,bg=alerted text.fg!75!black}
-\setbeamercolor{block title example}{use=example text,fg=white,bg=example text.fg!75!black}
+\setbeamercolor{block title}{use=structure,fg=white,bg=anlblue}
+\setbeamercolor{block title alerted}{use=alerted text,fg=white,bg=alerted text.fg}
+\setbeamercolor{block title example}{use=example text,fg=white,bg=example text.fg}
 
 \setbeamercolor{block body}{parent=normal text,use=block title,bg=block title.bg!10!bg}
 \setbeamercolor{block body alerted}{parent=normal text,use=block title alerted,bg=block title alerted.bg!10!bg}

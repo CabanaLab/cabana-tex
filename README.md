@@ -10,7 +10,7 @@ git clone https://github.com/CabanaLab/cabana-tex.git ~/texmf/tex/.
 ```
 
 ## beamerthemes
-UIC and NECCES themed presentations for use in Beamer.
+UIC, NECCES and ANL themed presentations for use in Beamer.
 
 [Examples](./beamerthemes/README.md)
 

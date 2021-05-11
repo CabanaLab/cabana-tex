@@ -1,5 +1,7 @@
 \mode<presentation>
 
+\captionsetup{font={scriptsize},labelfont={scriptsize}}
+
 % Make a new metadata field for the title page
 \newcommand{\insertcoverphoto}{graphics/anl-aerial.jpg}
 \newcommand{\coverphoto}[1]{\renewcommand{\insertcoverphoto}{#1}}
@@ -93,10 +95,14 @@
       \begin{beamercolorbox}[wd=\subtitlewidth,leftskip=0cm,sep=8pt,#1]{title page subheader}
         \usebeamerfont{subtitle}\insertsubtitle\par%
     \end{beamercolorbox}};
-    \node[inner sep=0pt,anchor=west] (subtitle) at (0.4cm,0.28\paperheight) {
-      \begin{beamercolorbox}[wd=0.9\paperwidth,leftskip=8pt,sep=8pt,#1]{author}
-        \usebeamerfont{author}\insertauthor%
-    \end{beamercolorbox}};
+    %% \node[inner sep=0pt,anchor=west] (subtitle) at (0.4cm,0.28\paperheight) {
+    \node[inner sep=0pt,anchor=north west] (subtitle) at (0.4cm,0.3\paperheight) {
+      \begin{beamercolorbox}[wd=0.9\paperwidth,leftskip=8pt,#1]{author}
+        \usebeamerfont{author}\insertauthor\par
+        \vspace{0.5em}
+        \usebeamerfont{institute}\insertinstitute\par
+      \end{beamercolorbox}
+    };
     \node[inner sep=0pt,anchor=south west] (subtitle) at (6.5cm,0) {
       \begin{beamercolorbox}[wd=\datewidth,leftskip=8pt,sep=8pt,#1]{date}
         \usebeamerfont{date}\insertdate%

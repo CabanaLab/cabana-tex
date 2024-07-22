@@ -1,0 +1,145 @@
+\ProvidesPackage{posterthemeANL}
+\usepackage{pgf}
+\usepackage{mathptmx}
+\usepackage[absolute,overlay]{textpos}
+\usepackage{varwidth}
+\usepackage{tikz}
+\usepackage{graphicx}
+\usepackage{ragged2e}
+\usepackage{amsmath}
+\usepackage{wrapfig}
+\usepackage{gensymb}
+\usepackage[version=4]{mhchem}
+\usepackage{caption}
+\captionsetup{font={small,it},labelfont={small,it}}
+\usetikzlibrary{arrows,shapes}
+\beamertemplatenavigationsymbolsempty
+
+% Re-define font sizes
+\makeatletter
+\renewcommand\Large{\@setfontsize\Large{50pt}{58}}
+\makeatother
+
+\makeatletter
+\renewcommand\large{\@setfontsize\Large{45pt}{52}}
+\makeatother
+
+\makeatletter
+\renewcommand\normalsize{\@setfontsize\normalsize{40pt}{45}}
+\makeatother
+
+\makeatletter
+\renewcommand\small{\@setfontsize\normalsize{30pt}{33}}
+\makeatother
+
+\setbeamertemplate{caption}[numbered]
+\defbeamertemplate*{title page}{customized}[1][]{%
+  \newsavebox\titleBox
+  \setbeamercolor{doebox}{fg=white,bg=darkblue}
+
+  \setlength{\TPHorizModule}{\paperwidth}						%These must
+  \setlength{\TPVertModule}{\paperheight}						%stay here
+
+  \newcommand{\xdownarrow}[1]{%
+    {\left\downarrow\vbox to #1{}\right.\kern-\nulldelimiterspace}}
+
+  \begin{tikzpicture}[overlay,remember picture]
+
+    \node[align=center,text=white,fill=darkblue,minimum width=\paperwidth] at (current page.north west) [anchor=north west]{%
+      %% Poster title
+      \begin{varwidth}{0.65\paperwidth}%
+        \centering
+        \vspace*{2ex}
+        \fontsize{80}{100}\selectfont \inserttitle%
+      \end{varwidth}%
+      \\
+      \\
+      \\
+      %% Author
+      \begin{varwidth}{0.9\textwidth}
+        \centering
+        \fontsize{50}{60} \textit{\insertauthor}
+      \end{varwidth}
+      \\
+      %% \vspace*{1cm}
+      \\
+      %% Institution Affiliations
+      \begin{varwidth}{0.85\textwidth}
+        \centering
+        \fontsize{40}{50}\selectfont \insertinstitute
+      \end{varwidth}
+      \\
+      \textcolor{darkblue}{\rule{\textwidth}{0.01mm}}
+    };
+    \vspace{3cm}
+    %% \end{scope}
+  \end{tikzpicture}
+
+}
+
+\makeatletter
+\def\@email{your.email@institute.edu} % Default value
+\newcommand{\email}[1]{\def\@email{#1}}
+\def\@conference{Conference Title} % Default value
+\newcommand{\conference}[1]{\def\@conference{#1}}
+\makeatother
+
+\setbeamertemplate{footline}{%
+  % \hspace*{\fill}%
+  \begin{tikzpicture}[overlay, remember picture]
+    \useasboundingbox (0,0) rectangle(\the\paperwidth, 0.1in);
+  % %% Prepare the titleslide
+  % \ifnum\thepage<2\relax%
+  % %% Create the colored boxes across the title slide
+  % \fill[color=anlgreen] (0,0.72\paperheight-\titlebarheight) rectangle (0.4cm,0.72\paperheight);
+  % \fill[color=anlblue] (0.4cm,0.72\paperheight-\titlebarheight) rectangle (\paperwidth,0.72\paperheight);
+  % %% ANL Logo to the upper right corner
+  % \node[inner sep=0pt,anchor=east] (anllogo) at (\paperwidth-0.35cm,\paperheight-1.4cm) {\includegraphics[width=4.5cm]{logos/ANL_CMYK.pdf}};
+  % %% Accent image (default is argonne photo
+  % \node[inner sep=0pt,anchor=north east,align=right] (photo) at (\paperwidth, 0.72\paperheight) {\includegraphics[height=\titlebarheight]{\insertcoverphoto}};
+  % %% \ifdefined\@coverphoto%
+  % %% \@coverphoto%
+  % %%     %% Hello%% \@coverphoto
+  % %%     %% \else%
+  % %% graphics/anl-aerial.jpg%
+  % %% \fi%
+  % %% }};
+  % %% }; % graphics/anl-aerial.jpg
+  % %%   Add DOE logo and disclaimer to the lower left corner
+  \node[anchor=east] (doelogo) at (5.5in, 1.2in) {%
+    \includegraphics[width=5in]{logos/DOE_logo_black.pdf}};
+  \node[anchor=west,text width=4.5in] (doetext) at (5.5in, 1.2in) {%
+    \fontsize{20pt}{22pt}\selectfont
+    Argonne National Laboratory is a\\U.S.\ Department of Energy%
+    laboratory\\managed by UChicago Argonne, LLC.\par};
+  \node[anchor=east] (anllogo) at (48in, 1.2in) {%
+    \includegraphics[width=6in]{logos/ANL_CMYK.pdf}};
+  % \fi%
+  \end{tikzpicture}
+  
+  % \parbox{0.25\textwidth}{\large\vspace*{-10cm}\includegraphics[width=0.15\textwidth]{logos/ANL_CMYK.pdf}}%
+  % % \parbox{0.25\textwidth}{\large\vspace*{-10cm}This material is based upon work supported
+  % %   as part of NECCES, an Energy Frontier Research Center funded by
+  % %   the U.S. Department of Energy, Office of Science, Office of Basic
+  % %   Energy Sciences under Award Number DE-SC0012583.
+  % %   }
+  % \hspace*{\fill}\vskip2pt%
+}
+\makeatother
+
+\setbeamertemplate{bibliography item}{\insertbiblabel}
+
+\makeatletter
+\renewcommand\section{\@startsection {section}{1}{\z@}%
+  {-2.5ex \@plus -1ex}%
+  {2.3ex \@plus.2ex}%
+  {\normalfont\Large\bfseries}}
+% {-1.5ex \@plus -1ex \@minus -.2ex}%
+\makeatother
+
+\newenvironment{postercolumn}[1] {
+  % Argument is the position determined by column number
+  \begin{textblock}{.3}(#1,.18)
+}{
+  \end{textblock}
+}
